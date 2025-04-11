@@ -1,15 +1,15 @@
 import {expect, Page} from "@playwright/test";
-import {Navigation} from "./navigation";
 import {AuthActions} from "../auth/auth-actions";
 import {waitForElement} from "../../utils/wait-for-element";
 import {isBelowLg} from "../../utils/viewport-queries";
+import {NavigationActions} from "./navigation-actions";
 
 export class UserNavigation {
-    readonly navigation: Navigation;
+    readonly navigationActions: NavigationActions;
     readonly authActions: AuthActions;
 
     constructor(private page: Page) {
-        this.navigation = new Navigation(page);
+        this.navigationActions = new NavigationActions(page);
         this.authActions = new AuthActions(page);
     }
 
@@ -78,7 +78,7 @@ export class UserNavigation {
         expect(userNavigation).toBeTruthy();
 
         if (isSmallScreen) {
-            await this.navigation.openNavigationSlideOver();
+            await this.navigationActions.openNavigationSlideOver();
         }
 
         return {

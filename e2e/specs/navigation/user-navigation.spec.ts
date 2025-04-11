@@ -32,6 +32,7 @@ test.describe('User Navigation tests', () => {
         });
     });
 
+
     test.describe('@smallScreen', () => {
         test.use({viewport: VIEWPORT.md})
 

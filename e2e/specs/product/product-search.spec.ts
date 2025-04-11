@@ -1,5 +1,4 @@
 import {test} from '@playwright/test';
-import {Navigation} from "../../../src/page-objects/navigation/navigation";
 import {ProductSearch} from "../../../src/page-objects/product/product-search";
 
 test.describe('Product search tests', () => {
@@ -10,7 +9,7 @@ test.describe('Product search tests', () => {
         await productSearch.goto();
     });
 
-    test('user can see the top productSearch on large screens', async () => {
+    test('user can see the product search in top navigation', async () => {
         await productSearch.validate();
     });
 
