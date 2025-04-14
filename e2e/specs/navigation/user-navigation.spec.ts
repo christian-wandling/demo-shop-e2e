@@ -1,9 +1,9 @@
 import {test} from '../../../src/fixtures/auth.fixture';
 import {VIEWPORT} from "../../../src/constants/viewport";
 
-test.describe('User Navigation tests', () => {
+test.describe.serial('User Navigation tests', () => {
 
-    test.describe('@largeScreen', () => {
+    test.describe.serial('@largeScreen', () => {
         test.use({viewport: VIEWPORT['2xl']})
 
         test('user can see the unauthenticated user section in navigation bar', async ({unauthenticatedPage}) => {
@@ -21,7 +21,7 @@ test.describe('User Navigation tests', () => {
             await userNavigation.clickRegister();
         });
 
-        test('user can sign in via navigation bar', async ({unauthenticatedPage}) => {
+        test('user can go to the sign in page via navigation bar', async ({unauthenticatedPage}) => {
             const {userNavigation} = unauthenticatedPage;
             await userNavigation.clickSignIn();
         });
@@ -33,7 +33,7 @@ test.describe('User Navigation tests', () => {
     });
 
 
-    test.describe('@smallScreen', () => {
+    test.describe.serial('@smallScreen', () => {
         test.use({viewport: VIEWPORT.md})
 
         test('user can see the user section in navigation slide over', async ({unauthenticatedPage}) => {
@@ -51,7 +51,7 @@ test.describe('User Navigation tests', () => {
             await userNavigation.clickRegister();
         });
 
-        test('user can sign in via navigation slide over', async ({unauthenticatedPage}) => {
+        test('user can go to the sign page via navigation slide over', async ({unauthenticatedPage}) => {
             const {userNavigation} = unauthenticatedPage;
             await userNavigation.clickSignIn();
         });

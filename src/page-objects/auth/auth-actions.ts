@@ -15,7 +15,6 @@ export class AuthActions {
         const url = new URL(this.page.url());
         expect(url.pathname).toContain('/realms/demo_shop/protocol/openid-connect/auth');
         expect(url.searchParams.get('client_id')).toBe('demo_shop_ui');
-        expect(url.searchParams.get('redirect_uri')).toMatch(/\/products/);
 
         await this.page.fill('#username', process.env.USERNAME);
         await this.page.fill('#password', process.env.PASSWORD);

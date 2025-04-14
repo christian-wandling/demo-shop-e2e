@@ -20,14 +20,14 @@ test.describe('Navigation tests', () => {
             await navigation.validateLargeScreenNavigationBar({authenticated: true});
         });
 
-        test('user can navigate to landing page', async ({unauthenticatedPage}) => {
+        test('user can navigate to landing page when clicking on store logo in navigation bar', async ({unauthenticatedPage}) => {
             const {page} = unauthenticatedPage;
             const navigation = new Navigation(page);
 
             await navigation.navigateToLandingPageByClickingLogo();
         });
 
-        test('user can navigate to products page', async ({unauthenticatedPage}) => {
+        test('user can navigate to products page via menu item in navigation bar', async ({unauthenticatedPage}) => {
             const {page} = unauthenticatedPage;
             const navigation = new Navigation(page);
             await navigation.goto();
@@ -79,7 +79,7 @@ test.describe('Navigation tests', () => {
             await navigation.closeNavigationSlideOverWithBackdropClick();
         });
 
-        test('user can navigate to products which will close navigation', async ({unauthenticatedPage}) => {
+        test('user can navigate to products via menu item in navigation slide over which will close the slide over', async ({unauthenticatedPage}) => {
             const {page} = unauthenticatedPage;
             const navigation = new Navigation(page);
             await navigation.goto();

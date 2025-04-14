@@ -10,15 +10,15 @@ test.describe('Order list tests', () => {
         await page.goto('/orders');
     });
 
-    test('user can see the orders in a list', async ({page}) => {
+    test('user can see orders in a list', async ({page}) => {
         await orderList.validate();
     });
 
-    test('user can navigate to order detail page', async () => {
+    test('user can click on an order item and navigate to order detail page', async () => {
         await orderList.goToOrderDetailPage();
     });
 
-    test('user can navigate to product detail page', async () => {
+    test('user can click on a thumbnail and navigate to product detail page', async () => {
         await orderList.goToProductDetailPage();
     });
 })

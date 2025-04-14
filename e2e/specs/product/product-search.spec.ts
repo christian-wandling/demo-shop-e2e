@@ -9,11 +9,11 @@ test.describe('Product search tests', () => {
         await productSearch.goto();
     });
 
-    test('user can see the product search in top navigation', async () => {
+    test('user can see product search in navigation bar', async () => {
         await productSearch.validate();
     });
 
-    test('user can filter products', async () => {
+    test('user can filter products by typing into product search', async () => {
         await productSearch.filterProducts();
     });
 })

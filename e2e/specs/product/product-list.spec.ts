@@ -13,7 +13,7 @@ test.describe('Product list tests', () => {
         await productList.validate();
     });
 
-    test('user can navigate to product detail page', async () => {
+    test('user can click on a product image and navigate to product detail page', async () => {
         await productList.goToProductDetailPage();
     });
 })

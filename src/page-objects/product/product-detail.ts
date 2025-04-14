@@ -36,9 +36,7 @@ export class ProductDetail {
         expect(shoppingCartIcon).toBeTruthy();
         const currentCount = Number(await shoppingCartIcon.textContent());
 
-        const productDetailAddToCartButton = this.page.getByTestId('product-detail-add-to-cart-button');
-        await expect(productDetailAddToCartButton).toBeEnabled();
-        await productDetailAddToCartButton.click();
+        await this.productActions.addProductToCart();
 
         const newCount = Number(await shoppingCartIcon.textContent());
         expect(newCount).toBe(currentCount + 1)

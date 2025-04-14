@@ -10,4 +10,11 @@ export class ProductActions {
 
         await firstProductElement.click();
     }
+
+    async addProductToCart() {
+        const productDetailAddToCartButton = this.page.getByTestId('product-detail-add-to-cart-button');
+        await expect(productDetailAddToCartButton).toBeEnabled();
+        await productDetailAddToCartButton.click();
+    }
+
 }
