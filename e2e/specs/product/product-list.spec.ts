@@ -1,4 +1,4 @@
-import {test} from '@playwright/test';
+import {test} from '@chromatic-com/playwright';
 import {ProductList} from "../../../src/page-objects/product/product-list";
 
 test.describe('Product list tests', () => {

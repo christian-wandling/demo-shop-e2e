@@ -12,6 +12,9 @@ interchangeable implementations of the Demo Shop platform:
 2. [demo-shop-react-ui](http://github.com/christian-wandling/demo-shop-react-ui): React implementation of the frontend
 3. [demo-shop-dotnet-api](http://github.com/christian-wandling/demo-shop-dotnet-api): ASP.NET Core implementation of the API
 
+The latest test results can be found on chromatic:
+> <a href="https://67fdf0c9a95dbf7d8993b651-caleyrhptc.chromatic.com/" target="\_blank">https://67fdf0c9a95dbf7d8993b651-caleyrhptc.chromatic.com/</a>
+
 By keeping the E2E tests independent of any specific implementation, we can verify that all versions of the platform 
 adhere to the same functional requirements and provide a consistent user experience.
 
