@@ -9,7 +9,7 @@ export class ShoppingActions {
         const shoppingCartIcon = this.page.getByTestId('shopping-cart-icon-count');
         const itemsInCart = await shoppingCartIcon.textContent();
 
-        if(Number(itemsInCart) > 0) {
+        if (Number(itemsInCart) > 0) {
             await this.openShoppingCart();
             await this.clearShoppingCartItems();
         }

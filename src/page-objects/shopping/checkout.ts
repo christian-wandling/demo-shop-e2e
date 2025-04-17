@@ -12,7 +12,7 @@ export class Checkout {
     }
 
     async validate() {
-        const checkoutContainer = this.page.getByTestId('checkout-container');
+        const checkoutContainer = this.page.getByTestId('checkout');
         const userNameLocator = this.page.getByTestId('user-navigation-name');
         const userNameTextContent = await userNameLocator.textContent();
         const [firstname, lastname] = userNameTextContent.trim().replace(/\s+/g, ' ').split(' ');
@@ -77,8 +77,8 @@ export class Checkout {
     async updateAddress() {
         const countrySelect = this.page.locator('[data-testid="checkout-form-element-country"]');
         const currentValue = await countrySelect.inputValue();
-        const options = await countrySelect.locator('option').allTextContents();
-        const newValue = options.find(option => option !== currentValue);
+        const options = await countrySelect.locator('option').allTextContents()
+        const newValue = options.find(option => option !== currentValue && option !== "Select Country");
         if (!newValue) {
             throw new Error('No alternative option to select.');
         }

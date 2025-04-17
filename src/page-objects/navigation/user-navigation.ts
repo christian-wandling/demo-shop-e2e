@@ -1,7 +1,6 @@
 import {expect, Page} from "@playwright/test";
 import {AuthActions} from "../auth/auth-actions";
 import {waitForElement} from "../../utils/wait-for-element";
-import {isBelowLg} from "../../utils/viewport-queries";
 import {NavigationActions} from "./navigation-actions";
 
 export class UserNavigation {
@@ -18,7 +17,7 @@ export class UserNavigation {
     }
 
     async validateUnauthenticated() {
-        const {signIn, register, signOut, name} = await this.prepareNavigation();
+        const {signIn, register, signOut, name} = await this.navigationActions.prepareUserNavigation();
         await waitForElement(signIn, register);
 
         await expect(signIn).toBeVisible();
@@ -28,7 +27,7 @@ export class UserNavigation {
     }
 
     async validateAuthenticated() {
-        const {signIn, register, signOut, name} = await this.prepareNavigation();
+        const {signIn, register, signOut, name} = await this.navigationActions.prepareUserNavigation();
         await waitForElement(signOut, name);
 
         await expect(signOut).toBeVisible();
@@ -38,7 +37,7 @@ export class UserNavigation {
     }
 
     async clickSignIn() {
-        const {signIn} = await this.prepareNavigation();
+        const {signIn} = await this.navigationActions.prepareUserNavigation();
         await waitForElement(signIn);
 
         if (await signIn.isHidden()) {
@@ -50,7 +49,7 @@ export class UserNavigation {
     }
 
     async clickRegister() {
-        const {register} = await this.prepareNavigation();
+        const {register} = await this.navigationActions.prepareUserNavigation();
         await waitForElement(register);
         await expect(register).toBeVisible();
 
@@ -59,7 +58,7 @@ export class UserNavigation {
     }
 
     async clickSignOut() {
-        const {signOut} = await this.prepareNavigation();
+        const {signOut} = await this.navigationActions.prepareUserNavigation();
         await waitForElement(signOut).catch(() => false)
 
         if (await signOut.isHidden()) {
@@ -68,24 +67,5 @@ export class UserNavigation {
 
         await signOut.click();
         await this.authActions.handleKeycloakSignOut();
-    }
-
-    private async prepareNavigation() {
-        const isSmallScreen = isBelowLg(this.page);
-        const userNavigation = this.page.getByTestId(
-            isSmallScreen ? 'navigation-slide-over-user-section' : 'navigation-bar-user-section'
-        );
-        expect(userNavigation).toBeTruthy();
-
-        if (isSmallScreen) {
-            await this.navigationActions.openNavigationSlideOver();
-        }
-
-        return {
-            signIn: userNavigation.getByTestId('user-navigation-sign-in'),
-            register: userNavigation.getByTestId('user-navigation-register'),
-            signOut: userNavigation.getByTestId('user-navigation-sign-out'),
-            name: userNavigation.getByTestId('user-navigation-name')
-        };
     }
 }

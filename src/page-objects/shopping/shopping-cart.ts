@@ -25,7 +25,7 @@ export class ShoppingCart {
 
         const shoppingCartIconElement = shoppingCartIcon.getByTestId('shopping-cart-icon-count');
         const shoppingCartIconText = await shoppingCartIconElement.textContent();
-        expect(shoppingCartIconText).toBe('0');
+        expect(shoppingCartIconText.trim()).toBe('0');
     }
 
     async clickShoppingCartIcon() {
