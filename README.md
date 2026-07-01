@@ -1,22 +1,20 @@
-# E2E Testing Framework
+# Demo Shop - E2E
 
-This repository contains end-to-end tests for the Demo Shop platform. The test suite is designed to work across multiple
-implementations of the platform, ensuring consistent behavior regardless of the underlying technology stack.
+This repository contains end-to-end tests for the Demo Shop platform. The test suite is designed to work across multiple implementations of the platform, ensuring consistent behavior regardless of the underlying technology stack.
 
-## Overview
+## Platform
 
-This E2E testing framework is intentionally maintained as a separate repository to support testing across multiple
-interchangeable implementations of the Demo Shop platform:
+The Demo Shop platform is split across interchangeable implementations:
 
-1. [demo-shop-public](http://github.com/christian-wandling/demo-shop-public): Angular frontend with NestJS API
-2. [demo-shop-react-ui](http://github.com/christian-wandling/demo-shop-react-ui): React implementation of the frontend
-3. [demo-shop-dotnet-api](http://github.com/christian-wandling/demo-shop-dotnet-api): ASP.NET Core implementation of the API
+[Angular + NestJS](https://github.com/christian-wandling/demo-shop-angular-nestjs) · [.NET API](https://github.com/christian-wandling/demo-shop-dotnet-api) · [React UI](https://github.com/christian-wandling/demo-shop-react-ui) · **E2E**
 
-The latest test results can be found on chromatic:
-> <a href="https://67fdf0c9a95dbf7d8993b651-caleyrhptc.chromatic.com/" target="\_blank">https://67fdf0c9a95dbf7d8993b651-caleyrhptc.chromatic.com/</a>
+By keeping the E2E tests independent of any specific implementation, we can verify that all versions of the platform adhere to the same functional requirements and provide a consistent user experience.
 
-By keeping the E2E tests independent of any specific implementation, we can verify that all versions of the platform 
-adhere to the same functional requirements and provide a consistent user experience.
+The latest test results can be found on Chromatic:
+
+> <a href="https://67fdf0c9a95dbf7d8993b651-caleyrhptc.chromatic.com/" target="_blank">https://67fdf0c9a95dbf7d8993b651-caleyrhptc.chromatic.com/</a>
+
+## Project Structure
 
 ```
 e2e/                # Test specifications organized by feature
@@ -43,8 +41,8 @@ src/
 
 ### Prerequisites
 
-- <a href="https://nodejs.org/en" target="\_blank">Node.js 22</a> or later
-- <a href="https://www.npmjs.com/" target="\_blank">npm</a> or <a href="https://pnpm.io/installation" target="\_blank">pnpm</a>
+- <a href="https://nodejs.org/en" target="_blank">Node.js 22</a> or later
+- <a href="https://www.npmjs.com/" target="_blank">npm</a> or <a href="https://pnpm.io/installation" target="_blank">pnpm</a>
 - Access to one of the Demo Shop implementations listed above
 
 ### Installation
@@ -66,8 +64,7 @@ npm install
 
 ### Configuration
 
-Before running tests, follow the guides in the demo-shop repositories listed above. You will need both a running 
-frontend and api for the tests to work.
+Before running tests, follow the guides in the Demo Shop repositories listed above. You will need both a running frontend and api for the tests to work.
 
 ```
 USERNAME=YOUR_DEMO_SHOP_EMAIL
