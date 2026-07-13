@@ -1,3 +1,4 @@
+import { ChromaticConfig } from '@chromatic-com/playwright';
 import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
@@ -7,7 +8,7 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
+export default defineConfig<ChromaticConfig>({
   testDir: './e2e',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -27,6 +28,8 @@ export default defineConfig({
     // },
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.BASE_URL || 'http://localhost:4200',
+
+    assetDomains: ['picsum.photos', 'fastly.picsum.photos'],
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
